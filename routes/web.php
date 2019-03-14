@@ -79,3 +79,17 @@ Route::get('terminate',[
    'middleware' => 'terminate',
    'uses' => 'ABCController@index',
 ]);
+
+
+class MyClass{
+   public $foo = 'bar';
+}
+Route::get('/myclass','ImplicitController@index');
+Route::get('/myclass2','ImplicitController@myMethod');
+
+Route::get('/foo/bar','UriController@index');
+
+Route::get('/register',function() {
+   return view('register');
+});
+Route::post('/user/register',array('uses'=>'UserRegistration@postRegister'));
