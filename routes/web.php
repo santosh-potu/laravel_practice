@@ -93,3 +93,29 @@ Route::get('/register',function() {
    return view('register');
 });
 Route::post('/user/register',array('uses'=>'UserRegistration@postRegister'));
+
+Route::get('/cookie/set','CookieController@setCookie');
+Route::get('/cookie/get','CookieController@getCookie');
+
+Route::get('/cookie',function(){
+    return response('Hello world',200)->header('Content-type','text/html')
+            ->withCookie(cookie()->forever('name','virat-gandhi'));
+            
+});
+Route::get('json',function() {
+   return response()->json(['name' => 'Virat Gandhi', 'state' => 'Gujarat']);
+});
+
+Route::get('/test_redirection',['as'=>'testing',function(){
+    return view('test');
+}]);
+
+Route::get('redirect',function(){
+    return redirect()->route('testing');
+});
+
+Route::get('rr','RedirectController@index');
+
+Route::get('/redirectcontroller',function() {
+    return redirect()->action('RedirectController@index');
+});
