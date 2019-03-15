@@ -134,3 +134,13 @@ Route::get('delete/{id}','StudDeleteController@destroy');
 Route::get('/form',function() {
    return view('form');
 });
+
+Route::get('/validation','ValidationController@showform');
+Route::post('/validation','ValidationController@validateform');
+
+Route::get('/uploadfile','UploadFileController@index');
+Route::post('/uploadfile','UploadFileController@showUploadFile');
+
+Route::get('sendbasicemail','MailController@basic_email');
+Route::get('sendhtmlemail','MailController@html_email');
+Route::get('sendattachmentemail','MailController@attachment_email');
