@@ -149,3 +149,7 @@ Route::get('ajax',function() {
    return view('message');
 });
 Route::post('/getmsg','AjaxController@index');
+
+Route::get('/paging_example','PagingController@index');
+
+Route::get('OrmExample','OrmController@getMessages');
